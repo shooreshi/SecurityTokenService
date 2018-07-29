@@ -25,7 +25,7 @@
                     ClientSecrets = {
                         new Secret("secret".Sha256()) },
                     // scopes that client has access to
-                    AllowedScopes = { "tbp", "otherApi" }
+                    AllowedScopes = { "tbp", "otherApi", "andAnotherApi" }
                     }
                 };
             }
