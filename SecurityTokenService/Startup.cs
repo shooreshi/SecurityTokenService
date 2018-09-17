@@ -5,13 +5,12 @@
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Hosting;
     using Microsoft.Extensions.DependencyInjection;
-    using Microsoft.Extensions.Logging;
 
     public class Startup
     {
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
-        public void ConfigureServices(IServiceCollection services, ILoggerFactory loggerFactory)
+        public void ConfigureServices(IServiceCollection services)
             {
             services.AddIdentityServer()
                 .AddDeveloperSigningCredential()
@@ -19,10 +18,10 @@
                 .AddInMemoryClients(Config.GetClients())
                 .AddTestUsers(Config.GetUsers());
 
-            var cors = new DefaultCorsPolicyService(loggerFactory.CreateLogger<DefaultCorsPolicyService>())
-                {
-                AllowedOrigins = { "https://foo", "http://localhost:4200" }
-                };
+            //var cors = new DefaultCorsPolicyService(loggerFactory.CreateLogger<DefaultCorsPolicyService>())
+            //    {
+            //    AllowedOrigins = { "https://foo", "http://localhost:4200" }
+            //    };
 
             services.AddSingleton<ICorsPolicyService>(cors);
             }
