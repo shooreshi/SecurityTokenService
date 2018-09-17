@@ -23,7 +23,7 @@
             //    AllowedOrigins = { "https://foo", "http://localhost:4200" }
             //    };
 
-            services.AddSingleton<ICorsPolicyService>(cors);
+            //services.AddSingleton<ICorsPolicyService>(cors);
             }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
